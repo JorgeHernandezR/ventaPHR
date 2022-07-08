@@ -1,0 +1,55 @@
+Jorge Hernandez@JorgeHernandez MINGW64 ~/Desktop/ventaPHR (master)
+$ git init  ------->Aqui inicializamos la capeta indicando que sera de github
+Initialized empty Git repository in C:/Users/Jorge Hernandez/Desktop/ventaPHR/.git/
+
+Jorge Hernandez@JorgeHernandez MINGW64 ~/Desktop/ventaPHR (master)
+$ git status  ------>Esto es para ver que es lo que se ha subido al repositorio
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Captura.JPG
+        basedeDatos.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Jorge Hernandez@JorgeHernandez MINGW64 ~/Desktop/ventaPHR (master)
+$ git add . ------>Indicamos que queremos subir todo lo contenido en la carpeta
+
+Jorge Hernandez@JorgeHernandez MINGW64 ~/Desktop/ventaPHR (master)
+$ git commit -m "Se agrega el proyecto con la base de datos creada" ------>Agregamos un comentario a la subida que esta por agregarse
+[master (root-commit) 7c138b3] Se agrega el proyecto con la base de datos creada
+ 2 files changed, 24 insertions(+)
+ create mode 100644 Captura.JPG
+ create mode 100644 basedeDatos.txt
+
+Jorge Hernandez@JorgeHernandez MINGW64 ~/Desktop/ventaPHR (master)
+$ git config --global user.email jorge.isidrohr@gmail.com ---------->Agregamos el mail al que queremos que aparezca el git 
+
+Jorge Hernandez@JorgeHernandez MINGW64 ~/Desktop/ventaPHR (master)
+$ git config --global user.name jorgeHernandezR  ------->Agregamos el usuario el cual aparecerá
+
+Jorge Hernandez@JorgeHernandez MINGW64 ~/Desktop/ventaPHR (master)
+$ git commit -m "Se agrega el proyecto con la base de datos creada"-------->Repetimos el comentario para ver si tenemos algo por comentar 
+On branch master
+nothing to commit, working tree clean
+
+Jorge Hernandez@JorgeHernandez MINGW64 ~/Desktop/ventaPHR (master)
+$ git branch -M main ---------Indicamos en cual rama queremos mandarlo
+
+Jorge Hernandez@JorgeHernandez MINGW64 ~/Desktop/ventaPHR (main)
+$ git remote add origin https://github.com/JorgeHernandezR/ventaPHR.git ------->Hacemos conexion a nuestro repositorio creado 
+
+Jorge Hernandez@JorgeHernandez MINGW64 ~/Desktop/ventaPHR (main)
+$ git push -u origin main   ----------->ahora si subimos todo a nuestro repositorio
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 50.59 KiB | 2.81 MiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/JorgeHernandezR/ventaPHR.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.

@@ -1,0 +1,24 @@
+ventaphr BASE DE DATOS PARA LO DE PETRA.
+
+CREATE TABLE `ventaphr`.`usuario` ( `id_usuario` INT NOT NULL AUTO_INCREMENT , `nombre_usuario` VARCHAR(50) NOT NULL , `contraseña_usuario` VARCHAR(20) NOT NULL , PRIMARY KEY (`id_usuario`)) ENGINE = InnoDB;
+
+
+CREATE TABLE `ventaphr`.`producto` ( `id_producto` INT NOT NULL AUTO_INCREMENT , `nombre_producto` VARCHAR(100) NOT NULL , `precio_venta` DOUBLE NOT NULL , `precio_compra` DOUBLE NOT NULL , `existencia` INT NOT NULL , PRIMARY KEY (`id_producto`)) ENGINE = InnoDB;
+
+CREATE TABLE `ventaphr`.`venta` ( `id_venta` INT NOT NULL AUTO_INCREMENT , `total` DOUBLE NOT NULL , PRIMARY KEY (`id_venta `)) ENGINE = InnoDB;
+
+CREATE TABLE `ventaphr`.`detalleventa` ( `id_venta` INT NOT NULL , `id_producto` INT NOT NULL , `cantidad` DOUBLE NOT NULL ) ENGINE = InnoDB;
+
+ALTER TABLE `detalleventa` ADD CONSTRAINT `id_venta` FOREIGN KEY (`id_venta`) REFERENCES `venta`(`id_venta`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `detalleventa` ADD CONSTRAINT `id_producto` FOREIGN KEY (`id_producto`) REFERENCES `producto`(`id_producto`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+CREATE TABLE `ventaphr`.`fechaventa` ( `id_usuario` INT NOT NULL , `id_venta` INT NOT NULL , `fecha` TIMESTAMP NOT NULL ) ENGINE = InnoDB;
+
+CREATE TABLE `ventaphr`.`cliente` ( `id_cliente` INT NOT NULL AUTO_INCREMENT , `nombre_cliente` INT(50) NOT NULL , `telefono` BIGINT(10) NULL , PRIMARY KEY (`id_cliente`)) ENGINE = InnoDB;
+
+CREATE TABLE `ventaphr`.`credito` ( `id_credito` INT NOT NULL AUTO_INCREMENT , `fecha` TIMESTAMP NOT NULL , `id_usuario` INT NOT NULL , `id_cliente` INT NOT NULL , PRIMARY KEY (`id_credito`)) ENGINE = InnoDB;
+
+CREATE TABLE `ventaphr`.`creditocliente` ( `id_credito` INT NOT NULL , `id_cliente` INT NOT NULL , `total` DOUBLE NOT NULL ) ENGINE = InnoDB;
+
+ALTER TABLE `credito` ADD CONSTRAINT `id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario`(`id_usuario`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `credito` ADD CONSTRAINT `id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente`(`id_cliente`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE `creditocliente` ADD CONSTRAINT `id_credito` FOREIGN KEY (`id_credito`) REFERENCES `credito`(`id_credito`) ON DELETE RESTRICT ON UPDATE RESTRICT; ALTER TABLE `creditocliente` ADD CONSTRAINT `id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente`(`id_cliente`) ON DELETE RESTRICT ON UPDATE RESTRICT;

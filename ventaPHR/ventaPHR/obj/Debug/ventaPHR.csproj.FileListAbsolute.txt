@@ -1,0 +1,11 @@
+C:\Users\Jorge Hernandez\Documents\SharpDevelop Projects\ventaPHR\ventaPHR\bin\Debug\ventaPHR.exe
+C:\Users\Jorge Hernandez\Documents\SharpDevelop Projects\ventaPHR\ventaPHR\bin\Debug\ventaPHR.pdb
+C:\Users\Jorge Hernandez\Documents\SharpDevelop Projects\ventaPHR\ventaPHR\obj\Debug\ventaPHR.csprojResolveAssemblyReference.cache
+C:\Users\Jorge Hernandez\Documents\SharpDevelop Projects\ventaPHR\ventaPHR\obj\Debug\ventaPHR.exe
+C:\Users\Jorge Hernandez\Documents\SharpDevelop Projects\ventaPHR\ventaPHR\obj\Debug\ventaPHR.pdb
+C:\Users\Jorge Hernandez\Documents\SharpDevelop Projects\ventaPHR\ventaPHR\obj\Debug\ventaPHR.MainForm.resources
+C:\Users\Jorge Hernandez\Documents\SharpDevelop Projects\ventaPHR\ventaPHR\obj\Debug\ventaPHR.csproj.GenerateResource.Cache
+C:\Users\Jorge Hernandez\Documents\SharpDevelop Projects\ventaPHR\ventaPHR\bin\Debug\ventaPHR.exe.config
+C:\Users\Jorge Hernandez\Documents\SharpDevelop Projects\ventaPHR\ventaPHR\obj\Debug\ventaPHR.Login.resources
+C:\Users\Jorge Hernandez\Documents\SharpDevelop Projects\ventaPHR\ventaPHR\obj\Debug\ventaPHR.Buscar.resources
+C:\Users\Jorge Hernandez\Documents\SharpDevelop Projects\ventaPHR\ventaPHR\obj\Debug\ventaPHR.Inventario.resources

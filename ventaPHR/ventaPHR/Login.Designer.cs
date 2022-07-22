@@ -79,6 +79,7 @@ namespace ventaPHR
 			this.txtContraseña.Name = "txtContraseña";
 			this.txtContraseña.Size = new System.Drawing.Size(297, 20);
 			this.txtContraseña.TabIndex = 3;
+			this.txtContraseña.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtContraseñaKeyDown);
 			// 
 			// btnEntrar
 			// 
@@ -122,5 +123,11 @@ namespace ventaPHR
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.PictureBox pictureBox1;
+		
+		
+		
+		
+		
+		
 	}
 }

@@ -23,7 +23,7 @@ namespace ventaPHR
 	/// </summary>a2
 	public partial class MainForm : Form
 	{
-		static byte rol=0;
+		
 		float total=0;
 		static Login l = new Login();
 		static Buscar ventanaBuscar= new Buscar();
@@ -108,6 +108,11 @@ namespace ventaPHR
 			//MessageBox.Show(ds.Tables[0].Rows[0].ItemArray[0].ToString());
 			cnx.Close();
 			dataGridViewProductos.Rows.Add(ds.Tables[0].Rows[0].ItemArray[0].ToString(),ds.Tables[0].Rows[0].ItemArray[1].ToString(),precio);
+			total += float.Parse(precio);
+			lblTotal.Text="Total: "+total.ToString("c");
+			txtCantidad.Clear();
+			txtCodigo.Clear();
+			
 			
 				}
 				
@@ -137,6 +142,34 @@ namespace ventaPHR
 		}
 		
 		void TxtCodigoKeyDown(object sender, KeyEventArgs e)
+		{
+			if(e.KeyData == Keys.Enter)
+			{
+				BtnAgregarClick(null,null);
+			}
+		}
+		
+		void BtnEliminarProductoClick(object sender, EventArgs e)
+		{
+			DialogResult respuesta;
+			respuesta=MessageBox.Show("Esta seguro de Eliminar","Atencion",MessageBoxButtons.YesNo,MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2);
+			if(respuesta==DialogResult.Yes)
+			{
+			int indice;
+			indice = dataGridViewProductos.SelectedRows[0].Index;
+			total-=float.Parse(dataGridViewProductos.Rows[indice].Cells[2].Value.ToString());
+			lblTotal.Text= "Total: " +total.ToString("C");
+			dataGridViewProductos.Rows.RemoveAt(indice);
+			
+			if(dataGridViewProductos.Rows.Count==0)
+			{
+				btnEliminarProducto.Enabled=false;
+			}
+			
+			}
+		}
+		
+		void TxtCantidadKeyDown(object sender, KeyEventArgs e)
 		{
 			if(e.KeyData == Keys.Enter)
 			{

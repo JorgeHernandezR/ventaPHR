@@ -50,14 +50,14 @@ namespace ventaPHR
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.txtCantidad = new System.Windows.Forms.TextBox();
-			this.button1 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
+			this.btnPagar = new System.Windows.Forms.Button();
 			this.btnBuscar = new System.Windows.Forms.Button();
 			this.btnInventario = new System.Windows.Forms.Button();
-			this.button5 = new System.Windows.Forms.Button();
-			this.button6 = new System.Windows.Forms.Button();
-			this.button7 = new System.Windows.Forms.Button();
+			this.btnCorteCaja = new System.Windows.Forms.Button();
+			this.btnDeuda = new System.Windows.Forms.Button();
+			this.btnSalir = new System.Windows.Forms.Button();
 			this.btnAgregar = new System.Windows.Forms.Button();
+			this.btnCredito = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -144,12 +144,13 @@ namespace ventaPHR
 			// 
 			this.btnEliminarProducto.AutoSize = true;
 			this.btnEliminarProducto.Enabled = false;
-			this.btnEliminarProducto.Location = new System.Drawing.Point(14, 364);
+			this.btnEliminarProducto.Location = new System.Drawing.Point(28, 364);
 			this.btnEliminarProducto.Name = "btnEliminarProducto";
 			this.btnEliminarProducto.Size = new System.Drawing.Size(98, 23);
 			this.btnEliminarProducto.TabIndex = 9;
 			this.btnEliminarProducto.Text = "Eliminar producto";
 			this.btnEliminarProducto.UseVisualStyleBackColor = true;
+			this.btnEliminarProducto.Click += new System.EventHandler(this.BtnEliminarProductoClick);
 			// 
 			// txtCodigo
 			// 
@@ -181,24 +182,16 @@ namespace ventaPHR
 			this.txtCantidad.Name = "txtCantidad";
 			this.txtCantidad.Size = new System.Drawing.Size(100, 20);
 			this.txtCantidad.TabIndex = 13;
+			this.txtCantidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtCantidadKeyDown);
 			// 
-			// button1
+			// btnPagar
 			// 
-			this.button1.Location = new System.Drawing.Point(537, 388);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 14;
-			this.button1.Text = "Pagar";
-			this.button1.UseVisualStyleBackColor = true;
-			// 
-			// button2
-			// 
-			this.button2.Location = new System.Drawing.Point(537, 437);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(75, 23);
-			this.button2.TabIndex = 15;
-			this.button2.Text = "Credito";
-			this.button2.UseVisualStyleBackColor = true;
+			this.btnPagar.Location = new System.Drawing.Point(537, 388);
+			this.btnPagar.Name = "btnPagar";
+			this.btnPagar.Size = new System.Drawing.Size(75, 23);
+			this.btnPagar.TabIndex = 14;
+			this.btnPagar.Text = "Pagar";
+			this.btnPagar.UseVisualStyleBackColor = true;
 			// 
 			// btnBuscar
 			// 
@@ -220,33 +213,33 @@ namespace ventaPHR
 			this.btnInventario.UseVisualStyleBackColor = true;
 			this.btnInventario.Click += new System.EventHandler(this.BtnInventarioClick);
 			// 
-			// button5
+			// btnCorteCaja
 			// 
-			this.button5.AutoSize = true;
-			this.button5.Location = new System.Drawing.Point(808, 174);
-			this.button5.Name = "button5";
-			this.button5.Size = new System.Drawing.Size(81, 23);
-			this.button5.TabIndex = 18;
-			this.button5.Text = "Corte de Caja";
-			this.button5.UseVisualStyleBackColor = true;
+			this.btnCorteCaja.AutoSize = true;
+			this.btnCorteCaja.Location = new System.Drawing.Point(808, 174);
+			this.btnCorteCaja.Name = "btnCorteCaja";
+			this.btnCorteCaja.Size = new System.Drawing.Size(81, 23);
+			this.btnCorteCaja.TabIndex = 18;
+			this.btnCorteCaja.Text = "Corte de Caja";
+			this.btnCorteCaja.UseVisualStyleBackColor = true;
 			// 
-			// button6
+			// btnDeuda
 			// 
-			this.button6.Location = new System.Drawing.Point(809, 247);
-			this.button6.Name = "button6";
-			this.button6.Size = new System.Drawing.Size(75, 23);
-			this.button6.TabIndex = 19;
-			this.button6.Text = "Deuda";
-			this.button6.UseVisualStyleBackColor = true;
+			this.btnDeuda.Location = new System.Drawing.Point(809, 247);
+			this.btnDeuda.Name = "btnDeuda";
+			this.btnDeuda.Size = new System.Drawing.Size(75, 23);
+			this.btnDeuda.TabIndex = 19;
+			this.btnDeuda.Text = "Deuda";
+			this.btnDeuda.UseVisualStyleBackColor = true;
 			// 
-			// button7
+			// btnSalir
 			// 
-			this.button7.Location = new System.Drawing.Point(810, 476);
-			this.button7.Name = "button7";
-			this.button7.Size = new System.Drawing.Size(75, 23);
-			this.button7.TabIndex = 20;
-			this.button7.Text = "Salir";
-			this.button7.UseVisualStyleBackColor = true;
+			this.btnSalir.Location = new System.Drawing.Point(810, 476);
+			this.btnSalir.Name = "btnSalir";
+			this.btnSalir.Size = new System.Drawing.Size(75, 23);
+			this.btnSalir.TabIndex = 20;
+			this.btnSalir.Text = "Salir";
+			this.btnSalir.UseVisualStyleBackColor = true;
 			// 
 			// btnAgregar
 			// 
@@ -259,19 +252,28 @@ namespace ventaPHR
 			this.btnAgregar.UseVisualStyleBackColor = true;
 			this.btnAgregar.Click += new System.EventHandler(this.BtnAgregarClick);
 			// 
+			// btnCredito
+			// 
+			this.btnCredito.Location = new System.Drawing.Point(537, 439);
+			this.btnCredito.Name = "btnCredito";
+			this.btnCredito.Size = new System.Drawing.Size(75, 23);
+			this.btnCredito.TabIndex = 22;
+			this.btnCredito.Text = "Credito";
+			this.btnCredito.UseVisualStyleBackColor = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(897, 511);
+			this.Controls.Add(this.btnCredito);
 			this.Controls.Add(this.btnAgregar);
-			this.Controls.Add(this.button7);
-			this.Controls.Add(this.button6);
-			this.Controls.Add(this.button5);
+			this.Controls.Add(this.btnSalir);
+			this.Controls.Add(this.btnDeuda);
+			this.Controls.Add(this.btnCorteCaja);
 			this.Controls.Add(this.btnInventario);
 			this.Controls.Add(this.btnBuscar);
-			this.Controls.Add(this.button2);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.btnPagar);
 			this.Controls.Add(this.txtCantidad);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
@@ -286,14 +288,14 @@ namespace ventaPHR
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button btnCredito;
 		private System.Windows.Forms.Button btnAgregar;
-		private System.Windows.Forms.Button button7;
-		private System.Windows.Forms.Button button6;
-		private System.Windows.Forms.Button button5;
+		private System.Windows.Forms.Button btnSalir;
+		private System.Windows.Forms.Button btnDeuda;
+		private System.Windows.Forms.Button btnCorteCaja;
 		private System.Windows.Forms.Button btnInventario;
 		private System.Windows.Forms.Button btnBuscar;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnPagar;
 		private System.Windows.Forms.TextBox txtCantidad;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;

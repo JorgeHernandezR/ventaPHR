@@ -42,5 +42,17 @@ namespace ventaPHR
 			}
 			
 		}
-	}
+		
+		
+	
+		
+		void TxtContraseñaKeyDown(object sender, KeyEventArgs e)
+		{
+			if(e.KeyData==Keys.Enter)
+			{
+				BtnEntrarClick(null,null);
+			}
+		}
+}
+
 }

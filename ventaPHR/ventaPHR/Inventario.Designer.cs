@@ -48,7 +48,7 @@ namespace ventaPHR
 			this.btnModificar = new System.Windows.Forms.Button();
 			this.btnSalir = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
-			this.txtBuscarProductoInventario = new System.Windows.Forms.TextBox();
+			this.txtFiltro = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -122,6 +122,7 @@ namespace ventaPHR
 			this.btnAlta.TabIndex = 8;
 			this.btnAlta.Text = "Alta";
 			this.btnAlta.UseVisualStyleBackColor = true;
+			this.btnAlta.Click += new System.EventHandler(this.BtnAltaClick);
 			// 
 			// btnEliminar
 			// 
@@ -159,19 +160,19 @@ namespace ventaPHR
 			this.label1.TabIndex = 12;
 			this.label1.Text = "Filtro:";
 			// 
-			// txtBuscarProductoInventario
+			// txtFiltro
 			// 
-			this.txtBuscarProductoInventario.Location = new System.Drawing.Point(558, 20);
-			this.txtBuscarProductoInventario.Name = "txtBuscarProductoInventario";
-			this.txtBuscarProductoInventario.Size = new System.Drawing.Size(176, 20);
-			this.txtBuscarProductoInventario.TabIndex = 13;
+			this.txtFiltro.Location = new System.Drawing.Point(558, 20);
+			this.txtFiltro.Name = "txtFiltro";
+			this.txtFiltro.Size = new System.Drawing.Size(176, 20);
+			this.txtFiltro.TabIndex = 13;
 			// 
 			// Inventario
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(746, 347);
-			this.Controls.Add(this.txtBuscarProductoInventario);
+			this.Controls.Add(this.txtFiltro);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.btnSalir);
 			this.Controls.Add(this.btnModificar);
@@ -180,11 +181,12 @@ namespace ventaPHR
 			this.Controls.Add(this.dataGridViewProductos);
 			this.Name = "Inventario";
 			this.Text = "Inventario";
+			this.Load += new System.EventHandler(this.InventarioLoad);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
-		private System.Windows.Forms.TextBox txtBuscarProductoInventario;
+		private System.Windows.Forms.TextBox txtFiltro;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button btnSalir;
 		private System.Windows.Forms.Button btnModificar;

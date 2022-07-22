@@ -21,3 +21,4 @@ C:\Users\Jorge Hernandez\Desktop\ventaPHR\ventaPHR\ventaPHR\bin\Debug\ventaPHR.e
 C:\Users\Jorge Hernandez\Desktop\ventaPHR\ventaPHR\ventaPHR\bin\Debug\ventaPHR.pdb
 C:\Users\Jorge Hernandez\Desktop\ventaPHR\ventaPHR\ventaPHR\obj\Debug\ventaPHR.pdb
 C:\Users\Jorge Hernandez\Desktop\ventaPHR\ventaPHR\ventaPHR\obj\Debug\ventaPHR.Alta.resources
+C:\Users\Jorge Hernandez\Desktop\ventaPHR\ventaPHR\ventaPHR\obj\Debug\ventaPHR.Modificar.resources

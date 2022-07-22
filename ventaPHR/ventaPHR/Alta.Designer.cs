@@ -157,6 +157,7 @@ namespace ventaPHR
 			this.btnGuardar.TabIndex = 12;
 			this.btnGuardar.Text = "Guardar";
 			this.btnGuardar.UseVisualStyleBackColor = true;
+			this.btnGuardar.Click += new System.EventHandler(this.BtnGuardarClick);
 			// 
 			// Alta
 			// 
@@ -195,5 +196,7 @@ namespace ventaPHR
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
+		
+		
 	}
 }

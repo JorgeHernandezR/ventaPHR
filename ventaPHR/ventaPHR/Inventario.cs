@@ -49,7 +49,7 @@ namespace ventaPHR
 			dataGridViewProductos.Rows.Clear();
 			for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
 			{
-				if(ds.Tables[0].Rows[i].ItemArray[1].ToString().Contains(patron)|| ds.Tables[0].Rows[i].ItemArray[4].ToString().Contains(patron))
+				if(ds.Tables[0].Rows[i].ItemArray[1].ToString().Contains(patron)|| ds.Tables[0].Rows[i].ItemArray[2].ToString().Contains(patron))
 				{
 					dataGridViewProductos.Rows.Add(ds.Tables[0].Rows[i].ItemArray);
 					
@@ -67,7 +67,45 @@ namespace ventaPHR
 		
 		void BtnAltaClick(object sender, EventArgs e)
 		{
+			Alta ventanaAlta = new Alta();
+			ventanaAlta.ShowDialog();
+			llenarLista();
+		}
+		
+		void BtnModificarClick(object sender, EventArgs e)
+		{
+			string codigoBarra=dataGridViewProductos.SelectedRows[0].Cells[1].Value.ToString();
+			MessageBox.Show(codigoBarra);
+			Modificar ventanaModificar = new Modificar(codigoBarra);
+			llenarLista();
 			
+		}
+		
+		void BtnEliminarClick(object sender, EventArgs e)
+		{
+			string codigoBarra = dataGridViewProductos.SelectedRows[0].Cells[1].Value.ToString();
+			DialogResult opcion = MessageBox.Show("Estas seguro de eliminar este producto: "+codigoBarra,"ALERTA",MessageBoxButtons.YesNo,MessageBoxIcon.Information,MessageBoxDefaultButton.Button2);
+			if(opcion.Equals(DialogResult.Yes)){
+			   	string conexion = "server = localhost; userid = root; password = ; database = ventaphr";
+				var cnx = new MySqlConnection(conexion);
+				cnx.Open();
+				string sqlMod = "DELETE FROM producto WHERE codigo_barras_producto = '"+codigoBarra+"';";
+				MySqlCommand comando = new MySqlCommand(sqlMod,cnx);
+				comando.ExecuteNonQuery();
+				cnx.Close();
+				MessageBox.Show("Producto Eliminado satisfactoriamente","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Information);
+				llenarLista();
+			   }
+		}
+		
+		void BtnSalirClick(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+		
+		void TxtFiltroTextChanged(object sender, EventArgs e)
+		{
+			llenarLista();
 		}
 	}
 }

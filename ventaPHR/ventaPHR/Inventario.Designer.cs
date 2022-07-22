@@ -126,21 +126,23 @@ namespace ventaPHR
 			// 
 			// btnEliminar
 			// 
-			this.btnEliminar.Location = new System.Drawing.Point(159, 254);
+			this.btnEliminar.Location = new System.Drawing.Point(296, 254);
 			this.btnEliminar.Name = "btnEliminar";
 			this.btnEliminar.Size = new System.Drawing.Size(75, 23);
 			this.btnEliminar.TabIndex = 9;
 			this.btnEliminar.Text = "Eliminar";
 			this.btnEliminar.UseVisualStyleBackColor = true;
+			this.btnEliminar.Click += new System.EventHandler(this.BtnEliminarClick);
 			// 
 			// btnModificar
 			// 
-			this.btnModificar.Location = new System.Drawing.Point(302, 254);
+			this.btnModificar.Location = new System.Drawing.Point(153, 254);
 			this.btnModificar.Name = "btnModificar";
 			this.btnModificar.Size = new System.Drawing.Size(75, 23);
 			this.btnModificar.TabIndex = 10;
 			this.btnModificar.Text = "Modificar";
 			this.btnModificar.UseVisualStyleBackColor = true;
+			this.btnModificar.Click += new System.EventHandler(this.BtnModificarClick);
 			// 
 			// btnSalir
 			// 
@@ -150,6 +152,7 @@ namespace ventaPHR
 			this.btnSalir.TabIndex = 11;
 			this.btnSalir.Text = "Salir";
 			this.btnSalir.UseVisualStyleBackColor = true;
+			this.btnSalir.Click += new System.EventHandler(this.BtnSalirClick);
 			// 
 			// label1
 			// 
@@ -166,6 +169,7 @@ namespace ventaPHR
 			this.txtFiltro.Name = "txtFiltro";
 			this.txtFiltro.Size = new System.Drawing.Size(176, 20);
 			this.txtFiltro.TabIndex = 13;
+			this.txtFiltro.TextChanged += new System.EventHandler(this.TxtFiltroTextChanged);
 			// 
 			// Inventario
 			// 

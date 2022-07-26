@@ -50,7 +50,7 @@ namespace ventaPHR
 			this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.lblTotal.AutoSize = true;
 			this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblTotal.Location = new System.Drawing.Point(65, 9);
+			this.lblTotal.Location = new System.Drawing.Point(66, 9);
 			this.lblTotal.Name = "lblTotal";
 			this.lblTotal.Size = new System.Drawing.Size(158, 31);
 			this.lblTotal.TabIndex = 9;
@@ -87,7 +87,7 @@ namespace ventaPHR
 			this.lblVuelto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.lblVuelto.AutoSize = true;
 			this.lblVuelto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblVuelto.Location = new System.Drawing.Point(230, 59);
+			this.lblVuelto.Location = new System.Drawing.Point(230, 60);
 			this.lblVuelto.Name = "lblVuelto";
 			this.lblVuelto.Size = new System.Drawing.Size(82, 31);
 			this.lblVuelto.TabIndex = 13;
@@ -95,12 +95,14 @@ namespace ventaPHR
 			// 
 			// btnPagar
 			// 
+			this.btnPagar.Enabled = false;
 			this.btnPagar.Location = new System.Drawing.Point(12, 134);
 			this.btnPagar.Name = "btnPagar";
 			this.btnPagar.Size = new System.Drawing.Size(75, 23);
 			this.btnPagar.TabIndex = 14;
 			this.btnPagar.Text = "Pagar";
 			this.btnPagar.UseVisualStyleBackColor = true;
+			this.btnPagar.Click += new System.EventHandler(this.BtnPagarClick);
 			// 
 			// btnCancelar
 			// 
@@ -115,7 +117,7 @@ namespace ventaPHR
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(336, 173);
+			this.ClientSize = new System.Drawing.Size(367, 179);
 			this.Controls.Add(this.btnCancelar);
 			this.Controls.Add(this.btnPagar);
 			this.Controls.Add(this.lblVuelto);

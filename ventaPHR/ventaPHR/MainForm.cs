@@ -28,6 +28,7 @@ namespace ventaPHR
 		static Login l = new Login();
 		static Buscar ventanaBuscar= new Buscar();
 		static Inventario ventanaInventario = new Inventario();
+		string datos;
 			
 		public MainForm()
 		{
@@ -181,6 +182,12 @@ namespace ventaPHR
 		
 		void BtnPagarClick(object sender, EventArgs e)
 		{
+			
+			//RECORRIDO DE DATA GRIED VIEW PARA OBTENER LOS DATOS 
+			foreach (DataGridViewRow element in dataGridViewProductos.Rows) {
+				datos += element.Cells[0].Value.ToString() + "\n";
+			}
+			MessageBox.Show(datos);
 			Pago ventanaPago = new Pago(lblTotal.Text);
 			ventanaPago.ShowDialog();
 		}

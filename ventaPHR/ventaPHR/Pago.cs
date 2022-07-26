@@ -37,10 +37,18 @@ namespace ventaPHR
 		{
 			
 			double total = Convert.ToDouble(lblTotal.Text.Substring(8));
-			
 			double efectivo = Convert.ToDouble(txtEfectivo.Text);
 			double cambio = total - efectivo;
 			lblVuelto.Text = cambio.ToString("c");
+			btnPagar.Enabled = true;
+			
+		}
+		
+		void BtnPagarClick(object sender, EventArgs e)
+		{
+			MessageBox.Show("Pago realizado con exito","Alerta", MessageBoxButtons.OK,MessageBoxIcon.Information);
+			this.Close();
+			
 		}
 	}
 }

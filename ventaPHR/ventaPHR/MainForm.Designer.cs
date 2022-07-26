@@ -186,12 +186,14 @@ namespace ventaPHR
 			// 
 			// btnPagar
 			// 
+			this.btnPagar.Enabled = false;
 			this.btnPagar.Location = new System.Drawing.Point(537, 388);
 			this.btnPagar.Name = "btnPagar";
 			this.btnPagar.Size = new System.Drawing.Size(75, 23);
 			this.btnPagar.TabIndex = 14;
 			this.btnPagar.Text = "Pagar";
 			this.btnPagar.UseVisualStyleBackColor = true;
+			this.btnPagar.Click += new System.EventHandler(this.BtnPagarClick);
 			// 
 			// btnBuscar
 			// 
@@ -254,6 +256,7 @@ namespace ventaPHR
 			// 
 			// btnCredito
 			// 
+			this.btnCredito.Enabled = false;
 			this.btnCredito.Location = new System.Drawing.Point(537, 439);
 			this.btnCredito.Name = "btnCredito";
 			this.btnCredito.Size = new System.Drawing.Size(75, 23);

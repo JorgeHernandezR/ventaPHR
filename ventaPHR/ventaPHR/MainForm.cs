@@ -68,6 +68,7 @@ namespace ventaPHR
 			
 			if(btnEliminarProducto.Enabled==false){
 				btnEliminarProducto.Enabled=true;
+				btnPagar.Enabled = true;
 			}
 			if(txtCantidad.Text=="")
 			{
@@ -164,6 +165,7 @@ namespace ventaPHR
 			if(dataGridViewProductos.Rows.Count==0)
 			{
 				btnEliminarProducto.Enabled=false;
+				btnPagar.Enabled = false;
 			}
 			
 			}
@@ -175,6 +177,12 @@ namespace ventaPHR
 			{
 				BtnAgregarClick(null,null);
 			}
+		}
+		
+		void BtnPagarClick(object sender, EventArgs e)
+		{
+			Pago ventanaPago = new Pago(lblTotal.Text);
+			ventanaPago.ShowDialog();
 		}
 	}
 }

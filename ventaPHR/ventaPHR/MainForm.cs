@@ -185,10 +185,11 @@ namespace ventaPHR
 			
 			//RECORRIDO DE DATA GRIED VIEW PARA OBTENER LOS DATOS 
 			foreach (DataGridViewRow element in dataGridViewProductos.Rows) {
-				datos += element.Cells[0].Value.ToString() + "\n";
+				datos += element.Cells[0].Value.ToString().Trim()+"," +element.Cells[1].Value.ToString().Trim()+"," +element.Cells[2].Value.ToString().Trim()+"," +
+					element.Cells[3].Value.ToString().Trim()+"," +element.Cells[4].Value.ToString().Trim()+"," +"\n";
 			}
 			MessageBox.Show(datos);
-			Pago ventanaPago = new Pago(lblTotal.Text);
+			Pago ventanaPago = new Pago(lblTotal.Text,datos,lblFecha.Text,dataGridViewProductos);
 			ventanaPago.ShowDialog();
 		}
 	}

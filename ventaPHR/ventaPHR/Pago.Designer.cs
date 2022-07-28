@@ -39,7 +39,7 @@ namespace ventaPHR
 			this.lblTotal = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.txtEfectivo = new System.Windows.Forms.TextBox();
-			this.label2 = new System.Windows.Forms.Label();
+			this.lblEtiqueta = new System.Windows.Forms.Label();
 			this.lblVuelto = new System.Windows.Forms.Label();
 			this.btnPagar = new System.Windows.Forms.Button();
 			this.btnCancelar = new System.Windows.Forms.Button();
@@ -73,14 +73,14 @@ namespace ventaPHR
 			this.txtEfectivo.TabIndex = 11;
 			this.txtEfectivo.TextChanged += new System.EventHandler(this.TxtEfectivoTextChanged);
 			// 
-			// label2
+			// lblEtiqueta
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(184, 74);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(40, 13);
-			this.label2.TabIndex = 12;
-			this.label2.Text = "Vuelto:";
+			this.lblEtiqueta.AutoSize = true;
+			this.lblEtiqueta.Location = new System.Drawing.Point(184, 74);
+			this.lblEtiqueta.Name = "lblEtiqueta";
+			this.lblEtiqueta.Size = new System.Drawing.Size(40, 13);
+			this.lblEtiqueta.TabIndex = 12;
+			this.lblEtiqueta.Text = "Vuelto:";
 			// 
 			// lblVuelto
 			// 
@@ -121,7 +121,7 @@ namespace ventaPHR
 			this.Controls.Add(this.btnCancelar);
 			this.Controls.Add(this.btnPagar);
 			this.Controls.Add(this.lblVuelto);
-			this.Controls.Add(this.label2);
+			this.Controls.Add(this.lblEtiqueta);
 			this.Controls.Add(this.txtEfectivo);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.lblTotal);
@@ -133,7 +133,7 @@ namespace ventaPHR
 		private System.Windows.Forms.Button btnCancelar;
 		private System.Windows.Forms.Button btnPagar;
 		private System.Windows.Forms.Label lblVuelto;
-		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label lblEtiqueta;
 		private System.Windows.Forms.TextBox txtEfectivo;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label lblTotal;

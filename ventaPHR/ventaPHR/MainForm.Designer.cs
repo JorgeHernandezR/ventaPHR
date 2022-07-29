@@ -38,6 +38,12 @@ namespace ventaPHR
 		{
 			this.lblFecha = new System.Windows.Forms.Label();
 			this.dataGridViewProductos = new System.Windows.Forms.DataGridView();
+			this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.existencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.lblTotal = new System.Windows.Forms.Label();
 			this.btnEliminarProducto = new System.Windows.Forms.Button();
 			this.txtCodigo = new System.Windows.Forms.TextBox();
@@ -52,12 +58,6 @@ namespace ventaPHR
 			this.btnSalir = new System.Windows.Forms.Button();
 			this.btnAgregar = new System.Windows.Forms.Button();
 			this.btnCredito = new System.Windows.Forms.Button();
-			this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.existencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -90,6 +90,43 @@ namespace ventaPHR
 			this.dataGridViewProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridViewProductos.Size = new System.Drawing.Size(599, 315);
 			this.dataGridViewProductos.TabIndex = 1;
+			// 
+			// id
+			// 
+			this.id.HeaderText = "id";
+			this.id.Name = "id";
+			this.id.ReadOnly = true;
+			// 
+			// nombre
+			// 
+			this.nombre.HeaderText = "nombre";
+			this.nombre.Name = "nombre";
+			this.nombre.ReadOnly = true;
+			// 
+			// precio
+			// 
+			this.precio.HeaderText = "Precio";
+			this.precio.Name = "precio";
+			this.precio.ReadOnly = true;
+			// 
+			// cantidad
+			// 
+			this.cantidad.HeaderText = "Cantidad";
+			this.cantidad.Name = "cantidad";
+			this.cantidad.ReadOnly = true;
+			// 
+			// codigo
+			// 
+			this.codigo.HeaderText = "Codigo";
+			this.codigo.Name = "codigo";
+			this.codigo.ReadOnly = true;
+			// 
+			// existencia
+			// 
+			this.existencia.HeaderText = "Existencia";
+			this.existencia.Name = "existencia";
+			this.existencia.ReadOnly = true;
+			this.existencia.Visible = false;
 			// 
 			// lblTotal
 			// 
@@ -186,6 +223,7 @@ namespace ventaPHR
 			this.btnCorteCaja.TabIndex = 18;
 			this.btnCorteCaja.Text = "Corte de Caja";
 			this.btnCorteCaja.UseVisualStyleBackColor = true;
+			this.btnCorteCaja.Click += new System.EventHandler(this.BtnCorteCajaClick);
 			// 
 			// btnDeuda
 			// 
@@ -225,43 +263,6 @@ namespace ventaPHR
 			this.btnCredito.TabIndex = 22;
 			this.btnCredito.Text = "Credito";
 			this.btnCredito.UseVisualStyleBackColor = true;
-			// 
-			// id
-			// 
-			this.id.HeaderText = "id";
-			this.id.Name = "id";
-			this.id.ReadOnly = true;
-			// 
-			// nombre
-			// 
-			this.nombre.HeaderText = "nombre";
-			this.nombre.Name = "nombre";
-			this.nombre.ReadOnly = true;
-			// 
-			// precio
-			// 
-			this.precio.HeaderText = "Precio";
-			this.precio.Name = "precio";
-			this.precio.ReadOnly = true;
-			// 
-			// cantidad
-			// 
-			this.cantidad.HeaderText = "Cantidad";
-			this.cantidad.Name = "cantidad";
-			this.cantidad.ReadOnly = true;
-			// 
-			// codigo
-			// 
-			this.codigo.HeaderText = "Codigo";
-			this.codigo.Name = "codigo";
-			this.codigo.ReadOnly = true;
-			// 
-			// existencia
-			// 
-			this.existencia.HeaderText = "Existencia";
-			this.existencia.Name = "existencia";
-			this.existencia.ReadOnly = true;
-			this.existencia.Visible = false;
 			// 
 			// MainForm
 			// 

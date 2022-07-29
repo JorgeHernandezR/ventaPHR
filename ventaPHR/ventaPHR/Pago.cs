@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data;
@@ -22,6 +23,7 @@ namespace ventaPHR
 		static string datos1;
 		static string fecha1;
 		static string total1;
+		static int venta;
 		static DataGridView ds1;
 		public Pago()
 		{
@@ -42,6 +44,19 @@ namespace ventaPHR
 			fecha1=fecha;
 			total1= total;
 			ds1=ds;
+			
+			//Conectar a base de datos para obtener el numero de venta
+			string conexion = "server = localhost; userid = root; password = ; database = ventaphr";
+				var cnx = new MySqlConnection(conexion);
+				cnx.Open();
+			string numeroVenta ="SELECT MAX(id_venta)+1 FROM venta ;";
+			MySqlDataAdapter adaptador = new MySqlDataAdapter(numeroVenta,cnx);
+			DataSet ds2 = new DataSet();
+			adaptador.Fill(ds2);
+			cnx.Close();
+			lblVenta.Text= "Venta: "+ ds2.Tables[0].Rows[0].ItemArray[0].ToString();
+			venta = int.Parse(ds2.Tables[0].Rows[0].ItemArray[0].ToString());
+		
 			
 		}
 		void conexionDatabase(string sql){
@@ -79,7 +94,7 @@ namespace ventaPHR
 				
 			string sqlVenta = "INSERT INTO `venta`(`id_venta`, `total`) VALUES (Default,'"+total1.Substring(8)+"'); ";
 				conexionDatabase(sqlVenta);
-				string sqlFechaVenta = "INSERT INTO `fechaventa`(`id_usuario`, `id_venta`, `fecha`) VALUES ('1','3','"+fecha1+"');";
+				string sqlFechaVenta = "INSERT INTO `fechaventa`(`id_usuario`, `id_venta`, `fecha`) VALUES ('1',"+venta+",'"+fecha1+"');";
 				conexionDatabase(sqlFechaVenta);
 				
 				
@@ -89,7 +104,7 @@ namespace ventaPHR
 			string conexion2 = "server = localhost; userid = root; password = ; database = ventaphr";
 				var cnx2 = new MySqlConnection(conexion2);
 				cnx2.Open();
-				string sqlDetalleVenta = "INSERT INTO `detalleventa` (`id_venta`, `id_producto`, `cantidad`) VALUES ('3', '"+ds1.Rows[i].Cells[0].Value+"', '"+ds1.Rows[i].Cells[3].Value+"') ;";
+				string sqlDetalleVenta = "INSERT INTO `detalleventa` (`id_venta`, `id_producto`, `cantidad`) VALUES ("+venta+", '"+ds1.Rows[i].Cells[0].Value+"', '"+ds1.Rows[i].Cells[3].Value+"') ;";
 			MySqlCommand comando2 = new MySqlCommand(sqlDetalleVenta,cnx2);
 			comando2.ExecuteNonQuery();
 			cnx2.Close();
@@ -102,8 +117,10 @@ namespace ventaPHR
 			MessageBox.Show("Pago realizado con exito","Alerta", MessageBoxButtons.OK,MessageBoxIcon.Information);
 			this.Close();
 			
-//			MessageBox.Show(x[i]);
-//					MessageBox.Show("Datos de la tabla"+ ds1.Rows[i].Cells[1].Value.ToString());
+/*
+ * ESTO LO OCUPARE DESPUES
+ * SELECT fechaventa.fecha, SUM(venta.total) from venta INNER JOIN fechaventa ON venta.id_venta = fechaventa.id_venta  WHERE fechaventa.fecha = 2022-07-28;
+ * /
 			
 		}
 	}

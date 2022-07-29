@@ -39,7 +39,8 @@ namespace ventaPHR
 			InitializeComponent();
 			//Obtener fecha 
 			var dateAndTime = DateTime.Now;
-			var date= dateAndTime.Date.ToString("dd-MM-yyyy");
+			var date= dateAndTime.Date.ToString("yyyy-MM-dd");	
+
 			lblFecha.Text=date;
 			
 			
@@ -191,6 +192,11 @@ namespace ventaPHR
 			MessageBox.Show(datos);
 			Pago ventanaPago = new Pago(lblTotal.Text,datos,lblFecha.Text,dataGridViewProductos);
 			ventanaPago.ShowDialog();
+		}
+		
+		void BtnCorteCajaClick(object sender, EventArgs e)
+		{
+			
 		}
 	}
 }

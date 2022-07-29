@@ -43,6 +43,7 @@ namespace ventaPHR
 			this.lblVuelto = new System.Windows.Forms.Label();
 			this.btnPagar = new System.Windows.Forms.Button();
 			this.btnCancelar = new System.Windows.Forms.Button();
+			this.lblVenta = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// lblTotal
@@ -113,11 +114,21 @@ namespace ventaPHR
 			this.btnCancelar.Text = "Cancelar";
 			this.btnCancelar.UseVisualStyleBackColor = true;
 			// 
+			// lblVenta
+			// 
+			this.lblVenta.AutoSize = true;
+			this.lblVenta.Location = new System.Drawing.Point(255, 9);
+			this.lblVenta.Name = "lblVenta";
+			this.lblVenta.Size = new System.Drawing.Size(41, 13);
+			this.lblVenta.TabIndex = 16;
+			this.lblVenta.Text = "Venta: ";
+			// 
 			// Pago
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(367, 179);
+			this.Controls.Add(this.lblVenta);
 			this.Controls.Add(this.btnCancelar);
 			this.Controls.Add(this.btnPagar);
 			this.Controls.Add(this.lblVuelto);
@@ -130,6 +141,7 @@ namespace ventaPHR
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Label lblVenta;
 		private System.Windows.Forms.Button btnCancelar;
 		private System.Windows.Forms.Button btnPagar;
 		private System.Windows.Forms.Label lblVuelto;

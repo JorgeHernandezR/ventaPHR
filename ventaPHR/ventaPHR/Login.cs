@@ -53,6 +53,11 @@ namespace ventaPHR
 				BtnEntrarClick(null,null);
 			}
 		}
+		
+		void BtnSalirClick(object sender, EventArgs e)
+		{
+			this.Close();
+		}
 }
 
 }

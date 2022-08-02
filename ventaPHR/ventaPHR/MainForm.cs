@@ -192,11 +192,25 @@ namespace ventaPHR
 			MessageBox.Show(datos);
 			Pago ventanaPago = new Pago(lblTotal.Text,datos,lblFecha.Text,dataGridViewProductos);
 			ventanaPago.ShowDialog();
+			
 		}
 		
 		void BtnCorteCajaClick(object sender, EventArgs e)
 		{
+			corteCaja ventanaCorteCaja = new corteCaja();
+			ventanaCorteCaja.ShowDialog();
 			
+		}
+		
+		void BtnSalirClick(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+		
+		void BtnDeudaClick(object sender, EventArgs e)
+		{
+			Deuda ventanaDeuda = new Deuda();
+			ventanaDeuda.ShowDialog();
 		}
 	}
 }

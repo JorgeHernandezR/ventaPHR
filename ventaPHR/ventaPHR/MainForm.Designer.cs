@@ -233,6 +233,7 @@ namespace ventaPHR
 			this.btnDeuda.TabIndex = 19;
 			this.btnDeuda.Text = "Deuda";
 			this.btnDeuda.UseVisualStyleBackColor = true;
+			this.btnDeuda.Click += new System.EventHandler(this.BtnDeudaClick);
 			// 
 			// btnSalir
 			// 
@@ -242,6 +243,7 @@ namespace ventaPHR
 			this.btnSalir.TabIndex = 20;
 			this.btnSalir.Text = "Salir";
 			this.btnSalir.UseVisualStyleBackColor = true;
+			this.btnSalir.Click += new System.EventHandler(this.BtnSalirClick);
 			// 
 			// btnAgregar
 			// 

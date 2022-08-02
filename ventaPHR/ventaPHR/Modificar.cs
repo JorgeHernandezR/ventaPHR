@@ -68,5 +68,10 @@ namespace ventaPHR
 			this.Close();
 			
 		}
+		
+		void BtnSalirAltaClick(object sender, EventArgs e)
+		{
+			this.Close();
+		}
 	}
 }

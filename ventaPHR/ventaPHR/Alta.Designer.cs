@@ -148,6 +148,7 @@ namespace ventaPHR
 			this.btnSalirAlta.TabIndex = 11;
 			this.btnSalirAlta.Text = "Salir";
 			this.btnSalirAlta.UseVisualStyleBackColor = true;
+			this.btnSalirAlta.Click += new System.EventHandler(this.BtnSalirAltaClick);
 			// 
 			// btnGuardar
 			// 

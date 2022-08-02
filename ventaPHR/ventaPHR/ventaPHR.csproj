@@ -57,6 +57,14 @@
     <Compile Include="Buscar.Designer.cs">
       <DependentUpon>Buscar.cs</DependentUpon>
     </Compile>
+    <Compile Include="corteCaja.cs" />
+    <Compile Include="corteCaja.Designer.cs">
+      <DependentUpon>corteCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deuda.cs" />
+    <Compile Include="Deuda.Designer.cs">
+      <DependentUpon>Deuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inventario.cs" />
     <Compile Include="Inventario.Designer.cs">
       <DependentUpon>Inventario.cs</DependentUpon>
@@ -86,6 +94,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Buscar.resx">
       <DependentUpon>Buscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="corteCaja.resx">
+      <DependentUpon>corteCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deuda.resx">
+      <DependentUpon>Deuda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>

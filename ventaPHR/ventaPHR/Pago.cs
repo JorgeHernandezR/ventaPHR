@@ -92,7 +92,7 @@ namespace ventaPHR
 		void BtnPagarClick(object sender, EventArgs e)
 		{
 				
-			string sqlVenta = "INSERT INTO `venta`(`id_venta`, `total`) VALUES (Default,'"+total1.Substring(8)+"'); ";
+			string sqlVenta = "INSERT INTO `venta`(`id_venta`, `total`) VALUES (NULL,'"+total1.Substring(8)+"'); ";
 				conexionDatabase(sqlVenta);
 				string sqlFechaVenta = "INSERT INTO `fechaventa`(`id_usuario`, `id_venta`, `fecha`) VALUES ('1',"+venta+",'"+fecha1+"');";
 				conexionDatabase(sqlFechaVenta);
@@ -117,10 +117,16 @@ namespace ventaPHR
 			MessageBox.Show("Pago realizado con exito","Alerta", MessageBoxButtons.OK,MessageBoxIcon.Information);
 			this.Close();
 			
-/*
- * ESTO LO OCUPARE DESPUES
- * SELECT fechaventa.fecha, SUM(venta.total) from venta INNER JOIN fechaventa ON venta.id_venta = fechaventa.id_venta  WHERE fechaventa.fecha = 2022-07-28;
- * /
+
+// ESTO LO OCUPARE DESPUES
+// SELECT fechaventa.fecha, SUM(venta.total) from venta INNER JOIN fechaventa ON venta.id_venta = fechaventa.id_venta  WHERE fechaventa.fecha = 2022-07-28;
+ 
+			
+		}
+		
+		void BtnCancelarClick(object sender, EventArgs e)
+		{
+			this.Close();
 			
 		}
 	}

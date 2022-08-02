@@ -23,3 +23,5 @@ C:\Users\Jorge Hernandez\Desktop\ventaPHR\ventaPHR\ventaPHR\obj\Debug\ventaPHR.p
 C:\Users\Jorge Hernandez\Desktop\ventaPHR\ventaPHR\ventaPHR\obj\Debug\ventaPHR.Alta.resources
 C:\Users\Jorge Hernandez\Desktop\ventaPHR\ventaPHR\ventaPHR\obj\Debug\ventaPHR.Modificar.resources
 C:\Users\Jorge Hernandez\Desktop\ventaPHR\ventaPHR\ventaPHR\obj\Debug\ventaPHR.Pago.resources
+C:\Users\Jorge Hernandez\Desktop\ventaPHR\ventaPHR\ventaPHR\obj\Debug\ventaPHR.corteCaja.resources
+C:\Users\Jorge Hernandez\Desktop\ventaPHR\ventaPHR\ventaPHR\obj\Debug\ventaPHR.Deuda.resources

@@ -61,8 +61,16 @@
     <Compile Include="corteCaja.Designer.cs">
       <DependentUpon>corteCaja.cs</DependentUpon>
     </Compile>
-    <Compile Include="Deuda.cs" />
-    <Compile Include="Deuda.Designer.cs">
+    <Compile Include="creditoCliente.cs" />
+    <Compile Include="creditoCliente.Designer.cs">
+      <DependentUpon>creditoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deudas\consultarDeuda.cs" />
+    <Compile Include="Deudas\consultarDeuda.Designer.cs">
+      <DependentUpon>consultarDeuda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Deudas\Deuda.cs" />
+    <Compile Include="Deudas\Deuda.Designer.cs">
       <DependentUpon>Deuda.cs</DependentUpon>
     </Compile>
     <Compile Include="Inventario.cs" />
@@ -98,7 +106,13 @@
     <EmbeddedResource Include="corteCaja.resx">
       <DependentUpon>corteCaja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Deuda.resx">
+    <EmbeddedResource Include="creditoCliente.resx">
+      <DependentUpon>creditoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deudas\consultarDeuda.resx">
+      <DependentUpon>consultarDeuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deudas\Deuda.resx">
       <DependentUpon>Deuda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario.resx">
@@ -119,6 +133,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Deudas" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

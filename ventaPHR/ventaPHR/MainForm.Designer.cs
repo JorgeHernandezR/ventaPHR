@@ -265,6 +265,7 @@ namespace ventaPHR
 			this.btnCredito.TabIndex = 22;
 			this.btnCredito.Text = "Credito";
 			this.btnCredito.UseVisualStyleBackColor = true;
+			this.btnCredito.Click += new System.EventHandler(this.BtnCreditoClick);
 			// 
 			// MainForm
 			// 

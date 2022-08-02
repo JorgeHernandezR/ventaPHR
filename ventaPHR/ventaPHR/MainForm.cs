@@ -71,6 +71,7 @@ namespace ventaPHR
 			if(btnEliminarProducto.Enabled==false){
 				btnEliminarProducto.Enabled=true;
 				btnPagar.Enabled = true;
+				btnCredito.Enabled = true;
 			}
 			if(txtCantidad.Text=="")
 			{
@@ -168,6 +169,7 @@ namespace ventaPHR
 			{
 				btnEliminarProducto.Enabled=false;
 				btnPagar.Enabled = false;
+				btnCredito.Enabled = false;
 			}
 			
 			}
@@ -211,6 +213,18 @@ namespace ventaPHR
 		{
 			Deuda ventanaDeuda = new Deuda();
 			ventanaDeuda.ShowDialog();
+		}
+		
+		void BtnCreditoClick(object sender, EventArgs e)
+		{
+			//RECORRIDO DE DATA GRIED VIEW PARA OBTENER LOS DATOS 
+			foreach (DataGridViewRow element in dataGridViewProductos.Rows) {
+				datos += element.Cells[0].Value.ToString().Trim()+"," +element.Cells[1].Value.ToString().Trim()+"," +element.Cells[2].Value.ToString().Trim()+"," +
+					element.Cells[3].Value.ToString().Trim()+"," +element.Cells[4].Value.ToString().Trim()+"," +"\n";
+			}
+			MessageBox.Show(datos);
+			creditoCliente ventanaCreditoCliente = new creditoCliente(lblTotal.Text,datos,lblFecha.Text,dataGridViewProductos);
+			ventanaCreditoCliente.ShowDialog();
 		}
 	}
 }

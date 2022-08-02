@@ -36,33 +36,67 @@ namespace ventaPHR
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.dataGridViewDeuda = new System.Windows.Forms.DataGridView();
+			this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.totalIva = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.btnPagar = new System.Windows.Forms.Button();
 			this.btnAbonar = new System.Windows.Forms.Button();
 			this.btnSalir = new System.Windows.Forms.Button();
 			this.btnAlta = new System.Windows.Forms.Button();
 			this.btnEliminar = new System.Windows.Forms.Button();
 			this.btnModificar = new System.Windows.Forms.Button();
-			this.txtBuscar = new System.Windows.Forms.TextBox();
+			this.txtFiltro = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.btnConsultar = new System.Windows.Forms.Button();
-			this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.totalIva = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridViewDeuda)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// dataGridView1
+			// dataGridViewDeuda
 			// 
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+			this.dataGridViewDeuda.AllowUserToAddRows = false;
+			this.dataGridViewDeuda.AllowUserToDeleteRows = false;
+			this.dataGridViewDeuda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dataGridViewDeuda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridViewDeuda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+									this.id_cliente,
 									this.nombre,
 									this.total,
 									this.totalIva});
-			this.dataGridView1.Location = new System.Drawing.Point(12, 59);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(297, 392);
-			this.dataGridView1.TabIndex = 0;
+			this.dataGridViewDeuda.Location = new System.Drawing.Point(12, 59);
+			this.dataGridViewDeuda.MultiSelect = false;
+			this.dataGridViewDeuda.Name = "dataGridViewDeuda";
+			this.dataGridViewDeuda.ReadOnly = true;
+			this.dataGridViewDeuda.RowHeadersVisible = false;
+			this.dataGridViewDeuda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dataGridViewDeuda.Size = new System.Drawing.Size(297, 392);
+			this.dataGridViewDeuda.TabIndex = 0;
+			// 
+			// id_cliente
+			// 
+			this.id_cliente.HeaderText = "Id";
+			this.id_cliente.Name = "id_cliente";
+			this.id_cliente.ReadOnly = true;
+			this.id_cliente.Visible = false;
+			// 
+			// nombre
+			// 
+			this.nombre.HeaderText = "Nombre";
+			this.nombre.Name = "nombre";
+			this.nombre.ReadOnly = true;
+			// 
+			// total
+			// 
+			this.total.HeaderText = "Total";
+			this.total.Name = "total";
+			this.total.ReadOnly = true;
+			// 
+			// totalIva
+			// 
+			this.totalIva.HeaderText = "Total+IVA";
+			this.totalIva.Name = "totalIva";
+			this.totalIva.ReadOnly = true;
 			// 
 			// btnPagar
 			// 
@@ -90,6 +124,7 @@ namespace ventaPHR
 			this.btnSalir.TabIndex = 3;
 			this.btnSalir.Text = "Salir";
 			this.btnSalir.UseVisualStyleBackColor = true;
+			this.btnSalir.Click += new System.EventHandler(this.BtnSalirClick);
 			// 
 			// btnAlta
 			// 
@@ -118,12 +153,13 @@ namespace ventaPHR
 			this.btnModificar.Text = "Modificar";
 			this.btnModificar.UseVisualStyleBackColor = true;
 			// 
-			// txtBuscar
+			// txtFiltro
 			// 
-			this.txtBuscar.Location = new System.Drawing.Point(64, 26);
-			this.txtBuscar.Name = "txtBuscar";
-			this.txtBuscar.Size = new System.Drawing.Size(215, 20);
-			this.txtBuscar.TabIndex = 15;
+			this.txtFiltro.Location = new System.Drawing.Point(64, 26);
+			this.txtFiltro.Name = "txtFiltro";
+			this.txtFiltro.Size = new System.Drawing.Size(215, 20);
+			this.txtFiltro.TabIndex = 15;
+			this.txtFiltro.TextChanged += new System.EventHandler(this.TxtFiltroTextChanged);
 			// 
 			// label2
 			// 
@@ -142,21 +178,7 @@ namespace ventaPHR
 			this.btnConsultar.TabIndex = 16;
 			this.btnConsultar.Text = "Consultar";
 			this.btnConsultar.UseVisualStyleBackColor = true;
-			// 
-			// nombre
-			// 
-			this.nombre.HeaderText = "Nombre";
-			this.nombre.Name = "nombre";
-			// 
-			// total
-			// 
-			this.total.HeaderText = "Total";
-			this.total.Name = "total";
-			// 
-			// totalIva
-			// 
-			this.totalIva.HeaderText = "Total+IVA";
-			this.totalIva.Name = "totalIva";
+			this.btnConsultar.Click += new System.EventHandler(this.BtnConsultarClick);
 			// 
 			// Deuda
 			// 
@@ -164,7 +186,7 @@ namespace ventaPHR
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(451, 476);
 			this.Controls.Add(this.btnConsultar);
-			this.Controls.Add(this.txtBuscar);
+			this.Controls.Add(this.txtFiltro);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.btnModificar);
 			this.Controls.Add(this.btnEliminar);
@@ -172,25 +194,27 @@ namespace ventaPHR
 			this.Controls.Add(this.btnSalir);
 			this.Controls.Add(this.btnAbonar);
 			this.Controls.Add(this.btnPagar);
-			this.Controls.Add(this.dataGridView1);
+			this.Controls.Add(this.dataGridViewDeuda);
 			this.Name = "Deuda";
 			this.Text = "Deuda";
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			this.Load += new System.EventHandler(this.DeudaLoad);
+			((System.ComponentModel.ISupportInitialize)(this.dataGridViewDeuda)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.DataGridViewTextBoxColumn id_cliente;
 		private System.Windows.Forms.DataGridViewTextBoxColumn totalIva;
 		private System.Windows.Forms.DataGridViewTextBoxColumn total;
 		private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
 		private System.Windows.Forms.Button btnConsultar;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox txtBuscar;
+		private System.Windows.Forms.TextBox txtFiltro;
 		private System.Windows.Forms.Button btnModificar;
 		private System.Windows.Forms.Button btnEliminar;
 		private System.Windows.Forms.Button btnAlta;
 		private System.Windows.Forms.Button btnSalir;
 		private System.Windows.Forms.Button btnAbonar;
 		private System.Windows.Forms.Button btnPagar;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView dataGridViewDeuda;
 	}
 }

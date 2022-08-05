@@ -226,5 +226,11 @@ namespace ventaPHR
 			creditoCliente ventanaCreditoCliente = new creditoCliente(lblTotal.Text,datos,lblFecha.Text,dataGridViewProductos);
 			ventanaCreditoCliente.ShowDialog();
 		}
+		
+		void BtnClienteClick(object sender, EventArgs e)
+		{
+			Cliente ventanaCliente = new Cliente();
+			ventanaCliente.ShowDialog();
+		}
 	}
 }

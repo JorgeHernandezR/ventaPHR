@@ -57,6 +57,14 @@
     <Compile Include="Buscar.Designer.cs">
       <DependentUpon>Buscar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cliente\AltaCliente.cs" />
+    <Compile Include="Cliente\AltaCliente.Designer.cs">
+      <DependentUpon>AltaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\Cliente.cs" />
+    <Compile Include="Cliente\Cliente.Designer.cs">
+      <DependentUpon>Cliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="corteCaja.cs" />
     <Compile Include="corteCaja.Designer.cs">
       <DependentUpon>corteCaja.cs</DependentUpon>
@@ -103,6 +111,12 @@
     <EmbeddedResource Include="Buscar.resx">
       <DependentUpon>Buscar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cliente\AltaCliente.resx">
+      <DependentUpon>AltaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cliente\Cliente.resx">
+      <DependentUpon>Cliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="corteCaja.resx">
       <DependentUpon>corteCaja.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Deudas" />
+    <Folder Include="Cliente" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

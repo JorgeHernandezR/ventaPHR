@@ -58,6 +58,7 @@ namespace ventaPHR
 			this.btnSalir = new System.Windows.Forms.Button();
 			this.btnAgregar = new System.Windows.Forms.Button();
 			this.btnCredito = new System.Windows.Forms.Button();
+			this.btnCliente = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -267,11 +268,22 @@ namespace ventaPHR
 			this.btnCredito.UseVisualStyleBackColor = true;
 			this.btnCredito.Click += new System.EventHandler(this.BtnCreditoClick);
 			// 
+			// btnCliente
+			// 
+			this.btnCliente.Location = new System.Drawing.Point(814, 314);
+			this.btnCliente.Name = "btnCliente";
+			this.btnCliente.Size = new System.Drawing.Size(75, 23);
+			this.btnCliente.TabIndex = 23;
+			this.btnCliente.Text = "Cliente";
+			this.btnCliente.UseVisualStyleBackColor = true;
+			this.btnCliente.Click += new System.EventHandler(this.BtnClienteClick);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(897, 511);
+			this.Controls.Add(this.btnCliente);
 			this.Controls.Add(this.btnCredito);
 			this.Controls.Add(this.btnAgregar);
 			this.Controls.Add(this.btnSalir);
@@ -294,6 +306,7 @@ namespace ventaPHR
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button btnCliente;
 		private System.Windows.Forms.Button btnCredito;
 		private System.Windows.Forms.Button btnAgregar;
 		private System.Windows.Forms.Button btnSalir;

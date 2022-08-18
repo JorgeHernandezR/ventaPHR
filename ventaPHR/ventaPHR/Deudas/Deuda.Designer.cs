@@ -37,19 +37,19 @@ namespace ventaPHR
 		private void InitializeComponent()
 		{
 			this.dataGridViewDeuda = new System.Windows.Forms.DataGridView();
-			this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.totalIva = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.btnPagar = new System.Windows.Forms.Button();
 			this.btnAbonar = new System.Windows.Forms.Button();
 			this.btnSalir = new System.Windows.Forms.Button();
 			this.btnAlta = new System.Windows.Forms.Button();
 			this.btnEliminar = new System.Windows.Forms.Button();
-			this.btnModificar = new System.Windows.Forms.Button();
 			this.txtFiltro = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.btnConsultar = new System.Windows.Forms.Button();
+			this.idCredito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.id_cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.totalIva = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewDeuda)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -60,6 +60,7 @@ namespace ventaPHR
 			this.dataGridViewDeuda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridViewDeuda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridViewDeuda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+									this.idCredito,
 									this.id_cliente,
 									this.nombre,
 									this.total,
@@ -73,43 +74,19 @@ namespace ventaPHR
 			this.dataGridViewDeuda.Size = new System.Drawing.Size(297, 392);
 			this.dataGridViewDeuda.TabIndex = 0;
 			// 
-			// id_cliente
-			// 
-			this.id_cliente.HeaderText = "Id";
-			this.id_cliente.Name = "id_cliente";
-			this.id_cliente.ReadOnly = true;
-			this.id_cliente.Visible = false;
-			// 
-			// nombre
-			// 
-			this.nombre.HeaderText = "Nombre";
-			this.nombre.Name = "nombre";
-			this.nombre.ReadOnly = true;
-			// 
-			// total
-			// 
-			this.total.HeaderText = "Total";
-			this.total.Name = "total";
-			this.total.ReadOnly = true;
-			// 
-			// totalIva
-			// 
-			this.totalIva.HeaderText = "Total+IVA";
-			this.totalIva.Name = "totalIva";
-			this.totalIva.ReadOnly = true;
-			// 
 			// btnPagar
 			// 
-			this.btnPagar.Location = new System.Drawing.Point(353, 312);
+			this.btnPagar.Location = new System.Drawing.Point(353, 275);
 			this.btnPagar.Name = "btnPagar";
 			this.btnPagar.Size = new System.Drawing.Size(75, 23);
 			this.btnPagar.TabIndex = 1;
 			this.btnPagar.Text = "Pagar";
 			this.btnPagar.UseVisualStyleBackColor = true;
+			this.btnPagar.Click += new System.EventHandler(this.BtnPagarClick);
 			// 
 			// btnAbonar
 			// 
-			this.btnAbonar.Location = new System.Drawing.Point(353, 369);
+			this.btnAbonar.Location = new System.Drawing.Point(353, 318);
 			this.btnAbonar.Name = "btnAbonar";
 			this.btnAbonar.Size = new System.Drawing.Size(75, 23);
 			this.btnAbonar.TabIndex = 2;
@@ -134,6 +111,7 @@ namespace ventaPHR
 			this.btnAlta.TabIndex = 4;
 			this.btnAlta.Text = "Agregar";
 			this.btnAlta.UseVisualStyleBackColor = true;
+			this.btnAlta.Click += new System.EventHandler(this.BtnAltaClick);
 			// 
 			// btnEliminar
 			// 
@@ -143,15 +121,7 @@ namespace ventaPHR
 			this.btnEliminar.TabIndex = 5;
 			this.btnEliminar.Text = "Eliminar";
 			this.btnEliminar.UseVisualStyleBackColor = true;
-			// 
-			// btnModificar
-			// 
-			this.btnModificar.Location = new System.Drawing.Point(353, 238);
-			this.btnModificar.Name = "btnModificar";
-			this.btnModificar.Size = new System.Drawing.Size(75, 23);
-			this.btnModificar.TabIndex = 6;
-			this.btnModificar.Text = "Modificar";
-			this.btnModificar.UseVisualStyleBackColor = true;
+			this.btnEliminar.Click += new System.EventHandler(this.BtnEliminarClick);
 			// 
 			// txtFiltro
 			// 
@@ -180,6 +150,36 @@ namespace ventaPHR
 			this.btnConsultar.UseVisualStyleBackColor = true;
 			this.btnConsultar.Click += new System.EventHandler(this.BtnConsultarClick);
 			// 
+			// idCredito
+			// 
+			this.idCredito.HeaderText = "IDcredito";
+			this.idCredito.Name = "idCredito";
+			this.idCredito.ReadOnly = true;
+			// 
+			// id_cliente
+			// 
+			this.id_cliente.HeaderText = "Id";
+			this.id_cliente.Name = "id_cliente";
+			this.id_cliente.ReadOnly = true;
+			// 
+			// nombre
+			// 
+			this.nombre.HeaderText = "Nombre";
+			this.nombre.Name = "nombre";
+			this.nombre.ReadOnly = true;
+			// 
+			// total
+			// 
+			this.total.HeaderText = "Total";
+			this.total.Name = "total";
+			this.total.ReadOnly = true;
+			// 
+			// totalIva
+			// 
+			this.totalIva.HeaderText = "Total+IVA";
+			this.totalIva.Name = "totalIva";
+			this.totalIva.ReadOnly = true;
+			// 
 			// Deuda
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -188,7 +188,6 @@ namespace ventaPHR
 			this.Controls.Add(this.btnConsultar);
 			this.Controls.Add(this.txtFiltro);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.btnModificar);
 			this.Controls.Add(this.btnEliminar);
 			this.Controls.Add(this.btnAlta);
 			this.Controls.Add(this.btnSalir);
@@ -202,6 +201,7 @@ namespace ventaPHR
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.DataGridViewTextBoxColumn idCredito;
 		private System.Windows.Forms.DataGridViewTextBoxColumn id_cliente;
 		private System.Windows.Forms.DataGridViewTextBoxColumn totalIva;
 		private System.Windows.Forms.DataGridViewTextBoxColumn total;
@@ -209,7 +209,6 @@ namespace ventaPHR
 		private System.Windows.Forms.Button btnConsultar;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox txtFiltro;
-		private System.Windows.Forms.Button btnModificar;
 		private System.Windows.Forms.Button btnEliminar;
 		private System.Windows.Forms.Button btnAlta;
 		private System.Windows.Forms.Button btnSalir;

@@ -20,6 +20,7 @@ namespace ventaPHR
 	/// </summary>
 	public partial class AltaCliente : Form
 	{
+		
 		public AltaCliente()
 		{
 			//
@@ -31,12 +32,14 @@ namespace ventaPHR
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
 		}
-		public AltaCliente(string nombre, string numero){
+		public AltaCliente(string nombre,string numero){
 			InitializeComponent();
 			txtNombre.Text = nombre;
-			txtTelefono.Text = numero;
+			txtTelefono.Text = numero.ToString();
 			
 		}
+		
+	
 		void conexionDatabase(string sql){
 			string conexion = "server = localhost; userid = root; password = ; database = ventaphr";
 				var cnx = new MySqlConnection(conexion);

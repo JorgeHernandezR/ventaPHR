@@ -21,6 +21,9 @@ namespace ventaPHR
 	public partial class Cliente : Form
 	{
 		DataSet ds;
+		TextBox texto; 
+		int band = 0;
+		
 		public Cliente()
 		{
 			//
@@ -28,9 +31,16 @@ namespace ventaPHR
 			//
 			InitializeComponent();
 			
+			
 			//
 			// TODO: Add constructor code after the InitializeComponent() call.
 			//
+		}
+		public Cliente(TextBox text, int numero){
+			this.texto = text;
+			band = numero;
+			InitializeComponent();
+			
 		}
 		public void llenarLista(){
 			const string conexion = "server= localhost; userid=root ; password= ; database= ventaphr";
@@ -91,6 +101,18 @@ namespace ventaPHR
 		void BtnSalirClick(object sender, EventArgs e)
 		{
 			this.Close();
+		}
+		
+		
+		
+		void DataGridViewClienteCellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+		{
+			if(band == 1)
+			{
+			texto.Text = dataGridViewCliente.SelectedRows[0].Cells[1].Value.ToString();
+			this.Close();
+			}
+			
 		}
 	}
 }

@@ -29,3 +29,4 @@ C:\Users\Jorge Hernandez\Desktop\ventaPHR\ventaPHR\ventaPHR\obj\Debug\ventaPHR.c
 C:\Users\Jorge Hernandez\Desktop\ventaPHR\ventaPHR\ventaPHR\obj\Debug\ventaPHR.creditoCliente.resources
 C:\Users\Jorge Hernandez\Desktop\ventaPHR\ventaPHR\ventaPHR\obj\Debug\ventaPHR.Cliente.resources
 C:\Users\Jorge Hernandez\Desktop\ventaPHR\ventaPHR\ventaPHR\obj\Debug\ventaPHR.AltaCliente.resources
+C:\Users\Jorge Hernandez\Desktop\ventaPHR\ventaPHR\ventaPHR\obj\Debug\ventaPHR.AltaDeuda.resources

@@ -84,12 +84,12 @@ namespace ventaPHR
 		
 		void BtnAbonarClick(object sender, EventArgs e)
 		{
-			DialogResult btn = MessageBox.Show("Abonar a: "+dataGridViewCliente.Rows[0].Cells[1].Value.ToString(),"Atención",MessageBoxButtons.YesNo,MessageBoxIcon.Information,MessageBoxDefaultButton.Button2);
+			DialogResult btn = MessageBox.Show("Abonar a: "+dataGridViewCliente.SelectedRows[0].Cells[1].Value.ToString(),"Atención",MessageBoxButtons.YesNo,MessageBoxIcon.Information,MessageBoxDefaultButton.Button2);
 			
 			if(btn.Equals(DialogResult.Yes)){
-				string sqlVenta = "INSERT INTO `credito` (`id_credito`, `fecha`, `id_usuario`) VALUES (NULL, '"+fecha1+"' , "+dataGridViewCliente.Rows[0].Cells[0].Value.ToString()+");";
+				string sqlVenta = "INSERT INTO `credito` (`id_credito`, `fecha`, `id_usuario`) VALUES (NULL, '"+fecha1+"' , 1);";
 				conexionDatabase(sqlVenta);
-				string sqlFechaVenta = "INSERT INTO `creditocliente`(`id_credito`, `id_cliente`, `total`, `totalIva`) VALUES ((SELECT MAX(id_credito) FROM credito) ,'"+dataGridViewCliente.Rows[0].Cells[0].Value.ToString()+"',"+total1.Substring(8)+",total*0.05);";
+				string sqlFechaVenta = "INSERT INTO `creditocliente`(`id_credito`, `id_cliente`, `total`, `totalIva`) VALUES ((SELECT MAX(id_credito) FROM credito) ,'"+dataGridViewCliente.SelectedRows[0].Cells[0].Value.ToString()+"',"+total1.Substring(8)+",total*0.05);";
 				conexionDatabase(sqlFechaVenta);
 				
 				
@@ -99,7 +99,7 @@ namespace ventaPHR
 			string conexion2 = "server = localhost; userid = root; password = ; database = ventaphr";
 				var cnx2 = new MySqlConnection(conexion2);
 				cnx2.Open();
-				string sqlDetalleVenta = "INSERT INTO `productodeuda` (`id_credito`, `nombre`, `cantidad`, `precio`) VALUES ((SELECT MAX(id_credito) FROM credito) , '"+ds1.Rows[i].Cells[1].Value.ToString()+"', 1, "+total1.Substring(8)+");";
+				string sqlDetalleVenta = "INSERT INTO `productodeuda` (`id_credito`, `nombre`, `cantidad`, `precio`) VALUES ((SELECT MAX(id_credito) FROM credito) , '"+ds1.Rows[i].Cells[1].Value.ToString()+"', 1, '"+ds1.Rows[i].Cells[2].Value.ToString()+"');";
 			MySqlCommand comando2 = new MySqlCommand(sqlDetalleVenta,cnx2);
 			comando2.ExecuteNonQuery();
 			cnx2.Close();
@@ -108,5 +108,10 @@ namespace ventaPHR
 			
 		}
 	}
+		
+		void BtnAgregarClienteClick(object sender, EventArgs e)
+		{
+			
+		}
 }
 }

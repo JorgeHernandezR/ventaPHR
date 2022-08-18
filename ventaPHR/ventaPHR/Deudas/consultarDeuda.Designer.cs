@@ -37,22 +37,26 @@ namespace ventaPHR
 		private void InitializeComponent()
 		{
 			this.dataGridViewProductosDeuda = new System.Windows.Forms.DataGridView();
+			this.lblCliente = new System.Windows.Forms.Label();
+			this.btnSalir = new System.Windows.Forms.Button();
+			this.btnModificar = new System.Windows.Forms.Button();
+			this.idProductoDeuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.lblCliente = new System.Windows.Forms.Label();
-			this.btnSalir = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductosDeuda)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dataGridViewProductosDeuda
 			// 
 			this.dataGridViewProductosDeuda.AllowUserToAddRows = false;
-			this.dataGridViewProductosDeuda.AllowUserToDeleteRows = false;
+			this.dataGridViewProductosDeuda.AllowUserToResizeColumns = false;
+			this.dataGridViewProductosDeuda.AllowUserToResizeRows = false;
 			this.dataGridViewProductosDeuda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dataGridViewProductosDeuda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridViewProductosDeuda.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+									this.idProductoDeuda,
 									this.cantidad,
 									this.nombre,
 									this.precio,
@@ -60,35 +64,10 @@ namespace ventaPHR
 			this.dataGridViewProductosDeuda.Location = new System.Drawing.Point(12, 51);
 			this.dataGridViewProductosDeuda.MultiSelect = false;
 			this.dataGridViewProductosDeuda.Name = "dataGridViewProductosDeuda";
-			this.dataGridViewProductosDeuda.ReadOnly = true;
 			this.dataGridViewProductosDeuda.RowHeadersVisible = false;
 			this.dataGridViewProductosDeuda.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridViewProductosDeuda.Size = new System.Drawing.Size(444, 287);
 			this.dataGridViewProductosDeuda.TabIndex = 0;
-			// 
-			// cantidad
-			// 
-			this.cantidad.HeaderText = "Cantidad";
-			this.cantidad.Name = "cantidad";
-			this.cantidad.ReadOnly = true;
-			// 
-			// nombre
-			// 
-			this.nombre.HeaderText = "Producto";
-			this.nombre.Name = "nombre";
-			this.nombre.ReadOnly = true;
-			// 
-			// precio
-			// 
-			this.precio.HeaderText = "Precio";
-			this.precio.Name = "precio";
-			this.precio.ReadOnly = true;
-			// 
-			// fecha
-			// 
-			this.fecha.HeaderText = "Fecha";
-			this.fecha.Name = "fecha";
-			this.fecha.ReadOnly = true;
 			// 
 			// lblCliente
 			// 
@@ -107,11 +86,50 @@ namespace ventaPHR
 			this.btnSalir.Text = "Salir";
 			this.btnSalir.UseVisualStyleBackColor = true;
 			// 
+			// btnModificar
+			// 
+			this.btnModificar.Location = new System.Drawing.Point(12, 344);
+			this.btnModificar.Name = "btnModificar";
+			this.btnModificar.Size = new System.Drawing.Size(75, 23);
+			this.btnModificar.TabIndex = 3;
+			this.btnModificar.Text = "Modificar";
+			this.btnModificar.UseVisualStyleBackColor = true;
+			this.btnModificar.Click += new System.EventHandler(this.BtnModificarClick);
+			// 
+			// idProductoDeuda
+			// 
+			this.idProductoDeuda.HeaderText = "ID";
+			this.idProductoDeuda.Name = "idProductoDeuda";
+			this.idProductoDeuda.Visible = false;
+			// 
+			// cantidad
+			// 
+			this.cantidad.HeaderText = "Cantidad";
+			this.cantidad.Name = "cantidad";
+			this.cantidad.ReadOnly = true;
+			// 
+			// nombre
+			// 
+			this.nombre.HeaderText = "Producto";
+			this.nombre.Name = "nombre";
+			// 
+			// precio
+			// 
+			this.precio.HeaderText = "Precio";
+			this.precio.Name = "precio";
+			// 
+			// fecha
+			// 
+			this.fecha.HeaderText = "Fecha";
+			this.fecha.Name = "fecha";
+			this.fecha.ReadOnly = true;
+			// 
 			// consultarDeuda
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(472, 379);
+			this.Controls.Add(this.btnModificar);
 			this.Controls.Add(this.btnSalir);
 			this.Controls.Add(this.lblCliente);
 			this.Controls.Add(this.dataGridViewProductosDeuda);
@@ -120,6 +138,8 @@ namespace ventaPHR
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductosDeuda)).EndInit();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDeuda;
+		private System.Windows.Forms.Button btnModificar;
 		private System.Windows.Forms.Button btnSalir;
 		private System.Windows.Forms.Label lblCliente;
 		private System.Windows.Forms.DataGridViewTextBoxColumn fecha;

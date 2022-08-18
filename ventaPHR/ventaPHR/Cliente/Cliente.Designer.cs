@@ -65,6 +65,7 @@ namespace ventaPHR
 			this.dataGridViewCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridViewCliente.Size = new System.Drawing.Size(384, 300);
 			this.dataGridViewCliente.TabIndex = 1;
+			this.dataGridViewCliente.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewClienteCellContentDoubleClick);
 			// 
 			// idCliente
 			// 

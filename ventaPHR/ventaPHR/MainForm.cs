@@ -194,6 +194,7 @@ namespace ventaPHR
 			MessageBox.Show(datos);
 			Pago ventanaPago = new Pago(lblTotal.Text,datos,lblFecha.Text,dataGridViewProductos);
 			ventanaPago.ShowDialog();
+			dataGridViewProductos.Rows.Clear();
 			
 		}
 		

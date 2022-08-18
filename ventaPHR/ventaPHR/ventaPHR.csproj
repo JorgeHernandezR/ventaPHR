@@ -73,6 +73,10 @@
     <Compile Include="creditoCliente.Designer.cs">
       <DependentUpon>creditoCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Deudas\AltaDeuda.cs" />
+    <Compile Include="Deudas\AltaDeuda.Designer.cs">
+      <DependentUpon>AltaDeuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Deudas\consultarDeuda.cs" />
     <Compile Include="Deudas\consultarDeuda.Designer.cs">
       <DependentUpon>consultarDeuda.cs</DependentUpon>
@@ -122,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="creditoCliente.resx">
       <DependentUpon>creditoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Deudas\AltaDeuda.resx">
+      <DependentUpon>AltaDeuda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Deudas\consultarDeuda.resx">
       <DependentUpon>consultarDeuda.cs</DependentUpon>

@@ -21,6 +21,7 @@ namespace ventaPHR
 	/// </summary>
 	public partial class corteCaja : Form
 	{
+		string abono;
 		public corteCaja()
 		{
 			//
@@ -62,7 +63,25 @@ namespace ventaPHR
 					
 			}
 		}
-		public void total(string fecha)
+		public void totalExtra(string fecha){
+			const string conexion = "server= localhost; userid=root ; password= ; database= ventaphr";
+			MySqlConnection cnx = new MySqlConnection(conexion);
+			cnx.Open();
+			string sql = "SELECT SUM(monto) AS suma FROM `ventaabono` WHERE fecha='"+fecha+"' AND MONTO IS NOT NULL ;";
+			MySqlDataAdapter adaptador = new MySqlDataAdapter(sql,cnx);
+			DataSet ds = new DataSet();
+			adaptador.Fill(ds);		
+			cnx.Close();
+			if(ds.Tables[0].Rows[0].ItemArray[0].ToString().Equals("")){
+			   	abono="0";
+			   	
+			   }else{
+			   	abono=ds.Tables[0].Rows[0].ItemArray[0].ToString();
+			   		
+			   }
+		}
+		
+		public void totales(string fecha)
 		{
 			const string conexion = "server= localhost; userid=root ; password= ; database= ventaphr";
 			MySqlConnection cnx = new MySqlConnection(conexion);
@@ -72,8 +91,16 @@ namespace ventaPHR
 			DataSet ds = new DataSet();
 			adaptador.Fill(ds);		
 			cnx.Close();
+			//Convertir los resultados a long
+			long totalString;
+			if(ds.Tables[0].Rows[0].ItemArray[0].ToString().Equals("")){
+				totalString=0;
+			}else{
+				totalString = long.Parse(ds.Tables[0].Rows[0].ItemArray[0].ToString());
+			}
+			long abonoString =long.Parse(abono);
 			
-			lblTotal.Text = "Total: "+ ds.Tables[0].Rows[0].ItemArray[0].ToString();
+			lblTotal.Text = "Total: $"+ (totalString+abonoString);
 			
 			
 					
@@ -91,8 +118,15 @@ namespace ventaPHR
 			DataSet ds = new DataSet();
 			adaptador.Fill(ds);		
 			cnx.Close();
+			long abonoString = long.Parse(abono);
+			long totalString ;
+			if(ds.Tables[0].Rows[0].ItemArray[0].ToString().Equals("")){
+				totalString=0;
+			}else{
+				totalString = long.Parse(ds.Tables[0].Rows[0].ItemArray[0].ToString());
+			}
 			
-			lblGanancia.Text = "Ganancia: "+ ds.Tables[0].Rows[0].ItemArray[0].ToString();
+			lblGanancia.Text = "Ganancia: $"+ totalString+(abonoString*0.05);
 		}
 		
 		
@@ -105,9 +139,10 @@ namespace ventaPHR
 		void DtpFechaValueChanged(object sender, EventArgs e)
 		{
 			dataGridViewProductos.Rows.Clear();
-			llenarLista(dtpFecha.Value.Year.ToString()+"/"+dtpFecha.Value.Month.ToString()+"/"+dtpFecha.Value.Day.ToString());
-			total(dtpFecha.Value.Year.ToString()+"/"+dtpFecha.Value.Month.ToString()+"/"+dtpFecha.Value.Day.ToString());
-			totalGanancia(dtpFecha.Value.Year.ToString()+"/"+dtpFecha.Value.Month.ToString()+"/"+dtpFecha.Value.Day.ToString());
+			llenarLista(dtpFecha.Value.Year.ToString()+"-"+dtpFecha.Value.Month.ToString()+"-"+dtpFecha.Value.Day.ToString());
+			totalExtra(dtpFecha.Value.Year.ToString()+"-"+dtpFecha.Value.Month.ToString()+"-"+dtpFecha.Value.Day.ToString());
+			totales(dtpFecha.Value.Year.ToString()+"-"+dtpFecha.Value.Month.ToString()+"-"+dtpFecha.Value.Day.ToString());
+			totalGanancia(dtpFecha.Value.Year.ToString()+"-"+dtpFecha.Value.Month.ToString()+"-"+dtpFecha.Value.Day.ToString());
 			
 			
 		}

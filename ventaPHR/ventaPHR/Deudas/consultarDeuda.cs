@@ -39,7 +39,7 @@ namespace ventaPHR
 			const string conexion = "server= localhost; userid=root ; password= ; database= ventaphr";
 			var cnx = new MySqlConnection(conexion);
 			cnx.Open();
-			string sql = "SELECT productodeuda.cantidad, productodeuda.nombre, productodeuda.precio,credito.fecha, creditocliente.id_cliente FROM productodeuda INNER JOIN creditocliente on productodeuda.id_credito= creditocliente.id_credito INNER JOIN credito on creditocliente.id_credito = credito.id_credito WHERE creditocliente.id_cliente= "+id+" ORDER BY credito.fecha; "; 
+			string sql = "SELECT productodeuda.id_productodeuda,productodeuda.cantidad, productodeuda.nombre, productodeuda.precio,credito.fecha, creditocliente.id_cliente FROM productodeuda INNER JOIN creditocliente on productodeuda.id_credito= creditocliente.id_credito INNER JOIN credito on creditocliente.id_credito = credito.id_credito WHERE creditocliente.id_cliente= "+id+" ORDER BY credito.fecha; "; 
 			var adaptador = new MySqlDataAdapter(sql,cnx);
 			ds = new DataSet();
 			adaptador.Fill(ds);		
@@ -58,12 +58,26 @@ namespace ventaPHR
 		
 		
 		
-		public consultarDeuda(string id)
+		public consultarDeuda(string id, string nombre)
 		{
 			InitializeComponent();
+			lblCliente.Text = nombre;
 			llenarLista(id);
 			
 	}
+		
+		void BtnModificarClick(object sender, EventArgs e)
+		{
+			string conexion = "server = localhost; userid = root; password = ; database = ventaphr";
+			var cnx = new MySqlConnection(conexion);
+			cnx.Open();
+			string sqlMod = "UPDATE `productodeuda` SET `nombre`='"+dataGridViewProductosDeuda.SelectedRows[0].Cells[2].Value.ToString()+"',`precio`='"+dataGridViewProductosDeuda.SelectedRows[0].Cells[3].Value.ToString()+"' WHERE id_productoDeuda='"+dataGridViewProductosDeuda.SelectedRows[0].Cells[0].Value.ToString()+"';";
+			MySqlCommand comando = new MySqlCommand(sqlMod,cnx);
+			comando.ExecuteNonQuery();
+			cnx.Close();
+			MessageBox.Show("Productos Modificados Exitosamente","Alerta",MessageBoxButtons.OK);
+			//llenarLista();
+		}
 }
 }
 
